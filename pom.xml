@@ -900,6 +900,9 @@
           <trimStackTrace>false</trimStackTrace>
           <forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
           <rerunFailingTestsCount>${testRetryCount}</rerunFailingTestsCount>
+          <includes>
+            <include>**/it/uniroma2/dicii/isw2/**/*.java</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>
