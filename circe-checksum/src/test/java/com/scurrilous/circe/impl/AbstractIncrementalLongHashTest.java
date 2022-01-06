@@ -27,10 +27,12 @@ import static org.mockito.Mockito.when;
 import com.scurrilous.circe.StatefulHash;
 import java.nio.ByteBuffer;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 @SuppressWarnings("javadoc")
+@Ignore
 public class AbstractIncrementalLongHashTest {
 
     private AbstractIncrementalLongHash hash;

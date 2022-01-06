@@ -26,11 +26,13 @@ import com.scurrilous.circe.IncrementalLongHash;
 import com.scurrilous.circe.crc.StandardCrcProvider;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Verify circe checksum.
  */
+@Ignore
 public class ChecksumTest {
 
     @Test

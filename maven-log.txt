@@ -1,0 +1,612 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.bookkeeper:bookkeeper-tools:jar:4.15.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-antrun-plugin @ line 65, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.bookkeeper.tests:scripts:jar:4.15.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ line 55, column 15
+[WARNING] 'build.plugins.plugin.version' for com.googlecode.maven-download-plugin:download-maven-plugin is missing. @ line 36, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: osx
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.classifier: osx-x86_64
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache BookKeeper :: Parent                                        [pom]
+[INFO] Apache BookKeeper :: Build Tools                                   [jar]
+[INFO] Apache BookKeeper :: Circe Checksum Library                        [nar]
+[INFO] Apache BookKeeper :: Stats API                                     [jar]
+[INFO] Apache BookKeeper :: CPU Affinity Library                          [nar]
+[INFO] Apache BookKeeper :: Common                                        [jar]
+[INFO] Apache BookKeeper :: Common :: Allocator                           [jar]
+[INFO] Apache BookKeeper :: Stats :: Parent                               [pom]
+[INFO] Apache BookKeeper :: Stats :: Utils                                [jar]
+[INFO] Apache BookKeeper :: Protocols                                     [jar]
+[INFO] Apache BookKeeper :: Tools :: Parent                               [pom]
+[INFO] Apache BookKeeper :: Tools :: Framework                            [jar]
+[INFO] Apache BookKeeper :: Http :: Http Server                           [jar]
+[INFO] Apache BookKeeper :: Stats Providers :: Prometheus                 [jar]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Vertx Http Server          [jar]
+[INFO] Apache BookKeeper :: Server                                        [jar]
+[INFO] Apache BookKeeper :: Benchmark                                     [jar]
+[INFO] Apache BookKeeper :: Stats Providers :: Codahale Metrics           [jar]
+[INFO] Apache BookKeeper :: Stats Providers                               [pom]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Servlet Http Server        [jar]
+[INFO] Apache BookKeeper :: Http                                          [pom]
+[INFO] Apache BookKeeper :: DistributedLog :: Parent                      [pom]
+[INFO] Apache BookKeeper :: DistributedLog :: Common                      [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: Protocol                    [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: Core Library                [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: IO :: FileSystem            [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: IO                          [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Parent                      [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Common Classes for Tests    [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Common                      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: API                         [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Proto                       [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: State Library               [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Parent           [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Parent [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Base [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: KV [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Parent           [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Api              [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Impl             [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Server                      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Common :: BK Grpc Name Resolver [jar]
+[INFO] Apache BookKeeper :: Tools :: Ledger                               [jar]
+[INFO] Apache BookKeeper :: Tools :: Stream                               [jar]
+[INFO] Apache BookKeeper :: Tools :: Perf                                 [jar]
+[INFO] Apache BookKeeper :: Tools                                         [jar]
+[INFO] Apache BookKeeper :: Metadata Drivers :: Parent                    [pom]
+[INFO] Apache BookKeeper :: Metadata Drivers:: Etcd                       [jar]
+[INFO] Apache BookKeeper :: Dist (Parent)                                 [pom]
+[INFO] Apache BookKeeper :: Dist (All)                                    [jar]
+[INFO] Apache BookKeeper :: Dist (Server)                                 [jar]
+[INFO] Apache BookKeeper :: Dist (Bkctl)                                  [jar]
+[INFO] Apache BookKeeper :: Shaded :: Parent                              [pom]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-shaded            [jar]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-tests-shaded      [jar]
+[INFO] Apache BookKeeper :: Shaded :: distributedlog-core-shaded          [jar]
+[INFO] Apache BookKeeper :: microbenchmarks                               [jar]
+[INFO] Apache BookKeeper :: Tests                                         [pom]
+[INFO] Apache BookKeeper :: Tests :: Test Shaded Jars                     [pom]
+[INFO] Apache BookKeeper :: Tests :: bookkeeper-server-shaded test        [jar]
+[INFO] Apache BookKeeper :: Tests :: bookkeeper-server-tests-shaded test  [jar]
+[INFO] Apache BookKeeper :: Tests :: distributedlog-core-shaded test      [jar]
+[INFO] Apache BookKeeper :: Tests :: Docker Images                        [pom]
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: All Released Versions [pom]
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: All Versions        [pom]
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: Current Version     [pom]
+[INFO] Apache BookKeeper :: Tests :: Utility module for Arquillian based integration tests [jar]
+[INFO] Apache BookKeeper :: Tests :: Common topologies for Docker based integration tests [jar]
+[INFO] Apache BookKeeper :: Tests :: Base module for Arquillian based integration tests [pom]
+[INFO] Apache BookKeeper :: Tests :: Base module for Arquillian based integration tests using groovy [pom]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility               [pom]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between all released versions and current version [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between 4.1.0 and current version [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test compat between old version and new version of hierarchical ledger manager [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between 4.1.0 and current version (with hostname bookie ID) [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test recovery does not work when password no in metadata [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade 4.1.0 to current in cluster with cookies [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test old clients working on current server [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between yahoo custom version and current [jar]
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test Bouncy Castle Provider load non FIPS version [jar]
+[INFO] Apache BookKeeper :: Tests :: Integration                          [pom]
+[INFO] Apache BookKeeper :: Tests :: Integration :: Smoke test            [jar]
+[INFO] Apache BookKeeper :: Tests :: Integration :: Standalone test       [jar]
+[INFO] Apache BookKeeper :: Tests :: Integration :: Cluster test          [jar]
+[INFO] Apache BookKeeper :: Tests :: Bash Scripts Test                    [jar]
+[WARNING] The artifact org.codehaus.mojo:sonar-maven-plugin:jar:3.9.0.2155 has been relocated to org.sonarsource.scanner.maven:sonar-maven-plugin:jar:3.9.0.2155: SonarQube plugin was moved to SonarSource organisation
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:bookkeeper >------------------
+[INFO] Building Apache BookKeeper :: Parent 4.15.0-SNAPSHOT              [1/86]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ bookkeeper ---
+[INFO] Deleting /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ bookkeeper ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (prepare-agent) @ bookkeeper ---
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ bookkeeper ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ bookkeeper ---
+[INFO] No site descriptor found: nothing to attach.
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ bookkeeper >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ bookkeeper ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (prepare-agent) @ bookkeeper ---
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/target/jacoco.exec
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ bookkeeper <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ bookkeeper ---
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:buildtools >------------------
+[INFO] Building Apache BookKeeper :: Build Tools 4.15.0-SNAPSHOT         [2/86]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ buildtools ---
+[INFO] Deleting /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ buildtools ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (prepare-agent) @ buildtools ---
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ buildtools ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ buildtools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ buildtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ buildtools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/src/test/resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ buildtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ buildtools ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ buildtools ---
+[INFO] Building jar: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/target/buildtools-4.15.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ buildtools ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ buildtools >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ buildtools ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.7:prepare-agent (prepare-agent) @ buildtools ---
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/target/jacoco.exec
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ buildtools <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ buildtools ---
+[INFO] Building jar: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/buildtools/target/buildtools-4.15.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] ----------------< org.apache.bookkeeper:circe-checksum >----------------
+[INFO] Building Apache BookKeeper :: Circe Checksum Library 4.15.0-SNAPSHOT [3/86]
+[INFO] --------------------------------[ nar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ circe-checksum ---
+[INFO] Deleting /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-validate (default-nar-validate) @ circe-checksum ---
+[INFO] Using AOL: x86_64-MacOSX-gpp
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-download (default-nar-download) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Getting Nar dependencies
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.0:prepare-agent (prepare-agent) @ circe-checksum ---
+[WARNING] The artifact xml-apis:xml-apis:jar:2.0.2 has been relocated to xml-apis:xml-apis:jar:1.0.b2
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-unpack (default-nar-unpack) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/nar
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-gnu-configure (default-nar-gnu-configure) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-system-generate (default-nar-system-generate) @ circe-checksum ---
+[INFO] Generating /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/nar/nar-generated/com/scurrilous/circe/checksum/NarSystem.java
+[INFO] Not using 'native-lib-loader' because it is not a dependency)
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-vcproj (default-nar-vcproj) @ circe-checksum ---
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ circe-checksum ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ circe-checksum ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-resources (default-nar-resources) @ circe-checksum ---
+[INFO] Copied 0 resources
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-gnu-resources (default-nar-gnu-resources) @ circe-checksum ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ circe-checksum ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 53 source files to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/classes
+[WARNING] /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/src/main/java/com/scurrilous/circe/crc/Sse42Crc32C.java:[68,20] finalize() in java.lang.Object has been deprecated
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-gnu-make (default-nar-gnu-make) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-compile (default-nar-compile) @ circe-checksum ---
+[INFO] Compiling 2 native files
+[INFO] 2 total files to be compiled.
+[INFO] Found 4 processors available
+[INFO] Limited used processors to 2
+[INFO] 
+Starting Core 0 with 1 source files...
+[INFO] 
+Starting Core 1 with 1 source files...
+[INFO] Linking...
+[INFO] Starting link {13.0.0 -dynamic -bundle -fexceptions -lstdc++}
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-gnu-process (default-nar-gnu-process) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-process-libraries (default-nar-process-libraries) @ circe-checksum ---
+[info] Running process libraries
+[info] Processing library Library: type: jni
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-test-unpack (default-nar-test-unpack) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/test-nar
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ circe-checksum ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ circe-checksum ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/test-classes
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-testCompile (default-nar-testCompile) @ circe-checksum ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-test (default-nar-test) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-prepare-package (default-nar-prepare-package) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-package (default-nar-package) @ circe-checksum ---
+[INFO] Building zip: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/circe-checksum-4.15.0-SNAPSHOT-x86_64-MacOSX-gpp-jni.nar
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ circe-checksum ---
+[INFO] Building jar: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/circe-checksum-4.15.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-site-plugin:3.7:attach-descriptor (attach-descriptor) @ circe-checksum ---
+[INFO] Skipping because packaging 'nar' is not pom.
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ circe-checksum >>>
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-validate (default-nar-validate) @ circe-checksum ---
+[INFO] Using AOL: x86_64-MacOSX-gpp
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-version) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-download (default-nar-download) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Getting Nar dependencies
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.0:prepare-agent (prepare-agent) @ circe-checksum ---
+[INFO] argLine set to -javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-unpack (default-nar-unpack) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/nar
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ circe-checksum <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ circe-checksum ---
+[INFO] Building jar: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/circe-checksum-4.15.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:3.1.0:single (make-assembly) @ circe-checksum ---
+[INFO] Reading assembly descriptor: src/main/assembly/assembly.xml
+[INFO] Building jar: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/circe-checksum-4.15.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- nar-maven-plugin:3.5.2:nar-integration-test (default-nar-integration-test) @ circe-checksum ---
+[INFO] Surefire report directory: /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/surefire-reports
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+/bin/sh: line 1: 15976 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter15885994841290726932.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire9432133674874727515tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire13055981681712772597tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15978 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter3025003518599881228.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire13537285996618458469tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire4406741749543367139tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15982 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter11689316830247925621.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire9059700491386065207tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire12893462656890372812tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15984 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter15075047627300266924.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire490720000404699846tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire294984019516853205tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+/bin/sh: line 1: 15986 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter2001850619729403883.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire10690158835041394545tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire4832853965095193201tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15988 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter14682706835993184084.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire3511267578080873097tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire7664649910005646180tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15990 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter15589266813927867262.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire9385032164573837305tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire11538939829313579078tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15992 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter16123334288509956384.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire5064346900803118383tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire5084551048753069274tmp
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+Caused by: java.lang.RuntimeException: Class java/lang/UnknownError could not be instrumented.
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:139)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:100)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.createRuntime(PreMain.java:55)
+	at org.jacoco.agent.rt.internal_290345e.PreMain.premain(PreMain.java:47)
+	... 6 more
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+	at java.base/java.lang.Class.getField(Class.java:1999)
+	at org.jacoco.agent.rt.internal_290345e.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:137)
+	... 9 more
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at src/java.instrument/share/native/libinstrument/JPLISAgent.c line: 422
+FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed
+/bin/sh: line 1: 15994 Abort trap: 6           /usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home/bin/java '-javaagent:/Users/francesco/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/jacoco.exec,excludes=com/scurrilous/circe/checksum/NarSystem*' -jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefirebooter5923883892232445993.jar /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire13883231984504550478tmp /var/folders/0n/tynnm4p169d1w_pm8fcxlkz40000gn/T/surefire16535154320512582211tmp
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping Apache BookKeeper :: Parent
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache BookKeeper :: Parent 4.15.0-SNAPSHOT:
+[INFO] 
+[INFO] Apache BookKeeper :: Parent ........................ SUCCESS [  2.172 s]
+[INFO] Apache BookKeeper :: Build Tools ................... SUCCESS [  1.092 s]
+[INFO] Apache BookKeeper :: Circe Checksum Library ........ FAILURE [ 11.946 s]
+[INFO] Apache BookKeeper :: Stats API ..................... SKIPPED
+[INFO] Apache BookKeeper :: CPU Affinity Library .......... SKIPPED
+[INFO] Apache BookKeeper :: Common ........................ SKIPPED
+[INFO] Apache BookKeeper :: Common :: Allocator ........... SKIPPED
+[INFO] Apache BookKeeper :: Stats :: Parent ............... SKIPPED
+[INFO] Apache BookKeeper :: Stats :: Utils ................ SKIPPED
+[INFO] Apache BookKeeper :: Protocols ..................... SKIPPED
+[INFO] Apache BookKeeper :: Tools :: Parent ............... SKIPPED
+[INFO] Apache BookKeeper :: Tools :: Framework ............ SKIPPED
+[INFO] Apache BookKeeper :: Http :: Http Server ........... SKIPPED
+[INFO] Apache BookKeeper :: Stats Providers :: Prometheus . SKIPPED
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Vertx Http Server SKIPPED
+[INFO] Apache BookKeeper :: Server ........................ SKIPPED
+[INFO] Apache BookKeeper :: Benchmark ..................... SKIPPED
+[INFO] Apache BookKeeper :: Stats Providers :: Codahale Metrics SKIPPED
+[INFO] Apache BookKeeper :: Stats Providers ............... SKIPPED
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Servlet Http Server SKIPPED
+[INFO] Apache BookKeeper :: Http .......................... SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: Parent ...... SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: Common ...... SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: Protocol .... SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: Core Library  SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: IO :: FileSystem SKIPPED
+[INFO] Apache BookKeeper :: DistributedLog :: IO .......... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Parent ...... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Common Classes for Tests SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Common ...... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: API ......... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Proto ....... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: State Library SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Parent SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Parent SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Base SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: KV SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Parent SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Api SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Impl SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Server ...... SKIPPED
+[INFO] Apache BookKeeper :: Stream Storage :: Common :: BK Grpc Name Resolver SKIPPED
+[INFO] Apache BookKeeper :: Tools :: Ledger ............... SKIPPED
+[INFO] Apache BookKeeper :: Tools :: Stream ............... SKIPPED
+[INFO] Apache BookKeeper :: Tools :: Perf ................. SKIPPED
+[INFO] Apache BookKeeper :: Tools ......................... SKIPPED
+[INFO] Apache BookKeeper :: Metadata Drivers :: Parent .... SKIPPED
+[INFO] Apache BookKeeper :: Metadata Drivers:: Etcd ....... SKIPPED
+[INFO] Apache BookKeeper :: Dist (Parent) ................. SKIPPED
+[INFO] Apache BookKeeper :: Dist (All) .................... SKIPPED
+[INFO] Apache BookKeeper :: Dist (Server) ................. SKIPPED
+[INFO] Apache BookKeeper :: Dist (Bkctl) .................. SKIPPED
+[INFO] Apache BookKeeper :: Shaded :: Parent .............. SKIPPED
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-shaded SKIPPED
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-tests-shaded SKIPPED
+[INFO] Apache BookKeeper :: Shaded :: distributedlog-core-shaded SKIPPED
+[INFO] Apache BookKeeper :: microbenchmarks ............... SKIPPED
+[INFO] Apache BookKeeper :: Tests ......................... SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Test Shaded Jars ..... SKIPPED
+[INFO] Apache BookKeeper :: Tests :: bookkeeper-server-shaded test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: bookkeeper-server-tests-shaded test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: distributedlog-core-shaded test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Docker Images ........ SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: All Released Versions SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: All Versions SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Docker Images :: Current Version SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Utility module for Arquillian based integration tests SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Common topologies for Docker based integration tests SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Base module for Arquillian based integration tests SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Base module for Arquillian based integration tests using groovy SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between all released versions and current version SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between 4.1.0 and current version SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test compat between old version and new version of hierarchical ledger manager SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between 4.1.0 and current version (with hostname bookie ID) SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test recovery does not work when password no in metadata SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade 4.1.0 to current in cluster with cookies SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test old clients working on current server SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between yahoo custom version and current SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Backward Compatibility :: Test Bouncy Castle Provider load non FIPS version SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Integration .......... SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Integration :: Smoke test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Integration :: Standalone test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Integration :: Cluster test SKIPPED
+[INFO] Apache BookKeeper :: Tests :: Bash Scripts Test .... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.679 s
+[INFO] Finished at: 2022-01-06T15:13:12+01:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.github.maven-nar:nar-maven-plugin:3.5.2:nar-integration-test (default-nar-integration-test) on project circe-checksum: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/francesco/Documents/UNIVERSITA/ISW2/ProjectDeAngelis/bookkeeper/circe-checksum/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :circe-checksum

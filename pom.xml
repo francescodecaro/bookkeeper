@@ -71,6 +71,7 @@
     <module>shaded</module>
     <module>microbenchmarks</module>
     <module>tests</module>
+<!--    <module>coverage</module>-->
   </modules>
   <mailingLists>
     <mailingList>
@@ -177,7 +178,7 @@
     <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
     <license-maven-plugin.version>1.6</license-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.8.0</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
     <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
@@ -198,6 +199,7 @@
     <spotbugs-maven-plugin.version>3.1.8</spotbugs-maven-plugin.version>
     <forkCount.variable>1</forkCount.variable>
     <servlet-api.version>4.0.0</servlet-api.version>
+    <aggregate.report.dir>tests/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
   </properties>
 
   <!-- dependency definitions -->
@@ -862,6 +864,11 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.7</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -1042,6 +1049,33 @@
     </plugins>
   </build>
   <profiles>
+
+    <profile>
+      <id>coverage</id>
+      <activation>
+        <property>
+          <name>coverage</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>prepare-agent</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <!-- profile used by jenkins CI -->
       <id>code-coverage</id>
@@ -1070,7 +1104,7 @@
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.0</version>
+            <version>${jacoco-maven-plugin.version}</version>
             <executions>
               <execution>
                 <goals>

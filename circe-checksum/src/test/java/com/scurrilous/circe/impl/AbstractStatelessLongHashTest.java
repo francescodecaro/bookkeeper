@@ -25,10 +25,12 @@ import static org.mockito.Mockito.verify;
 import java.nio.ByteBuffer;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 @SuppressWarnings("javadoc")
+@Ignore
 public class AbstractStatelessLongHashTest {
 
     private AbstractStatelessLongHash hash;

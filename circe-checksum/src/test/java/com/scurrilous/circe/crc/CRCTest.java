@@ -31,6 +31,8 @@ import com.scurrilous.circe.HashProvider;
 import com.scurrilous.circe.IncrementalIntHash;
 import com.scurrilous.circe.params.CrcParameters;
 import java.nio.charset.Charset;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -39,6 +41,7 @@ import org.junit.Test;
  * CRC algorithms</a> for more information on these algorithms and others.
  */
 @SuppressWarnings("javadoc")
+@Ignore
 public class CRCTest {
 
     private static final HashProvider PROVIDER = new StandardCrcProvider();

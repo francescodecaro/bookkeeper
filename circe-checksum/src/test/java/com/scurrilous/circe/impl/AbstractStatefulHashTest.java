@@ -30,10 +30,12 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 @SuppressWarnings("javadoc")
+@Ignore
 public class AbstractStatefulHashTest {
 
     private AbstractStatefulHash hash;

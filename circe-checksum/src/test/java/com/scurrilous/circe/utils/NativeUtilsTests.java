@@ -20,11 +20,13 @@ package com.scurrilous.circe.utils;
 
 import java.io.FileNotFoundException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Unit test of {@link NativeUtils}.
  */
+@Ignore
 public class NativeUtilsTests {
 
     @Test

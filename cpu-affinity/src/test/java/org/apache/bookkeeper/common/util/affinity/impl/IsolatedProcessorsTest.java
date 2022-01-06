@@ -24,11 +24,13 @@ import static org.junit.Assert.assertEquals;
 
 import com.google.common.collect.Sets;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Tests for {@link IsolatedProcessors}.
  */
+@Ignore
 public class IsolatedProcessorsTest {
 
     @Test

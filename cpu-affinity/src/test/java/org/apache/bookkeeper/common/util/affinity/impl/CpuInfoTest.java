@@ -28,11 +28,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Tests for CpuInfo class.
  */
+@Ignore
 public class CpuInfoTest {
 
     @Test
