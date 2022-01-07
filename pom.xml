@@ -71,6 +71,7 @@
     <module>shaded</module>
     <module>microbenchmarks</module>
     <module>tests</module>
+    <module>coverage</module>
   </modules>
   <mailingLists>
     <mailingList>
@@ -198,6 +199,7 @@
     <spotbugs-maven-plugin.version>3.1.8</spotbugs-maven-plugin.version>
     <forkCount.variable>1</forkCount.variable>
     <servlet-api.version>4.0.0</servlet-api.version>
+    <aggregate.report.dir>coverage/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
   </properties>
 
   <!-- dependency definitions -->
@@ -1116,7 +1118,7 @@
               <execution>
                 <id>report</id>
                 <goals>
-                  <goal>report</goal>
+                  <goal>report-aggregate</goal>
                 </goals>
                 <phase>verify</phase>
               </execution>

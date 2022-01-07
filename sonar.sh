@@ -4,6 +4,12 @@ mvn clean verify sonar:sonar -Dcoverage \
  -Dsonar.login=151f13ffb32b3023ac6b6141006a3f97d2ea120a
 
 
+ mvn clean verify sonar:sonar -P code-coverage \
+  -Dsonar.projectKey=bookkeeper \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=151f13ffb32b3023ac6b6141006a3f97d2ea120a
+
+
  mvn sonar:sonar -Dsonar.projectKey=bookkeeper \
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=151f13ffb32b3023ac6b6141006a3f97d2ea120a \
