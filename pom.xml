@@ -177,7 +177,7 @@
     <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
     <license-maven-plugin.version>1.6</license-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.8.0</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
     <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
@@ -1042,6 +1042,42 @@
     </plugins>
   </build>
   <profiles>
+<!--    <profile>-->
+<!--      &lt;!&ndash; profile used by jenkins CI &ndash;&gt;-->
+<!--      <id>coverage</id>-->
+<!--      <build>-->
+<!--        <plugins>-->
+<!--          <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-surefire-plugin</artifactId>-->
+<!--            <version>${maven-surefire-plugin.version}</version>-->
+<!--&lt;!&ndash;            <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              &lt;!&ndash; @{argLine} is a variable injected by JaCoCo&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--              <argLine>@{argLine} -Xmx2G -Djava.net.preferIPv4Stack=true</argLine>-->
+<!--&lt;!&ndash;&lt;!&ndash;              <redirectTestOutputToFile>${redirectTestOutputToFile}</redirectTestOutputToFile>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <forkCount>${forkCount.variable}</forkCount>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <reuseForks>false</reuseForks>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash; we want build to complete even in case of failures &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              <testFailureIgnore>true</testFailureIgnore>&ndash;&gt;-->
+<!--&lt;!&ndash;            </configuration>&ndash;&gt;-->
+<!--          </plugin>-->
+<!--          <plugin>-->
+<!--            <groupId>org.jacoco</groupId>-->
+<!--            <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--            <version>${jacoco-maven-plugin.version}</version>-->
+<!--            <executions>-->
+<!--              <execution>-->
+<!--                <goals>-->
+<!--                  <goal>prepare-agent</goal>-->
+<!--                </goals>-->
+<!--              </execution>-->
+<!--            </executions>-->
+<!--          </plugin>-->
+<!--        </plugins>-->
+<!--      </build>-->
+<!--    </profile>-->
+
     <profile>
       <!-- profile used by jenkins CI -->
       <id>code-coverage</id>
@@ -1070,12 +1106,19 @@
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.0</version>
+            <version>${jacoco-maven-plugin.version}</version>
             <executions>
               <execution>
                 <goals>
                   <goal>prepare-agent</goal>
                 </goals>
+              </execution>
+              <execution>
+                <id>report</id>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
