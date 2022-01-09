@@ -1,10 +1,7 @@
 package it.uniroma2.dicii.isw2;
 
 import org.apache.bookkeeper.client.BKException;
-import org.apache.bookkeeper.client.api.DigestType;
-import org.apache.bookkeeper.client.api.WriteAdvHandle;
-import org.apache.bookkeeper.client.api.WriteFlag;
-import org.apache.bookkeeper.client.api.WriteHandle;
+import org.apache.bookkeeper.client.api.*;
 
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Before;
@@ -40,16 +37,42 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
         customMetadata.put("key", "value".getBytes());
         return Arrays.asList(new Object[][]{
                 {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, false, true },
+                {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, true, false },
+
                 {1, 1, 1, DigestType.CRC32, "password", Collections.emptyMap(),  0, BKException.Code.OK, false, true },
-                {1, 1, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, false, false },
+                {1, 1, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, true, false },
+
+                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, false, false },
+                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, true, true },
+
+
                 { 3, 2, 1, DigestType.CRC32C, "password", Collections.emptyMap(), 0, BKException.Code.OK, true, false },
                 { 3, 2, 1, DigestType.MAC, "password", Collections.emptyMap(), 0, BKException.Code.OK, false, false },
                 { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, true },
 
                 { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.IncorrectParameterException, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.IncorrectParameterException, false, true },
+
+
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.IncorrectParameterException, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.IncorrectParameterException, false, true },
+
+                // Long.MIN_VALUE to pass null
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, false, true },
+
+                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, false, true },
+                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
 
 
                 { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
+
+                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
+
+                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, true, false },
 
 
         });
@@ -93,6 +116,10 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
                     .execute()          // execute the creation op
                     .get();
 
+            if (exceptionCode != BKException.Code.OK) {
+                fail();
+            }
+
             assertEquals(customMetadata.keySet(), wh.getLedgerMetadata().getCustomMetadata().keySet());
             customMetadata.keySet().forEach(k -> {
                 assertArrayEquals(customMetadata.get(k), wh.getLedgerMetadata().getCustomMetadata().get(k));
@@ -117,7 +144,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
     @Test
     public void createAdvTest() {
         try {
-            WriteAdvHandle wh = bkc.newCreateLedgerOp()
+            CreateAdvBuilder createAdvBuilder = bkc.newCreateLedgerOp()
                     .withEnsembleSize(ensSize)
                     .withDigestType(digestType)
                     .withPassword(password.getBytes())
@@ -125,10 +152,19 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
                     .withAckQuorumSize(ackQuorumSize)
                     .withCustomMetadata(customMetadata)
                     .withWriteFlags(WriteFlag.DEFERRED_SYNC)
-                    .makeAdv()
-                    .withLedgerId(ledgerId)
+                    .makeAdv();
+
+            if (ledgerId != Long.MIN_VALUE) {
+                createAdvBuilder = createAdvBuilder.withLedgerId(ledgerId);
+            }
+
+            WriteAdvHandle wh = createAdvBuilder
                     .execute()          // execute the creation op
                     .get();
+
+            if (exceptionCode != BKException.Code.OK) {
+                fail();
+            }
 
             assertEquals(customMetadata.keySet(), wh.getLedgerMetadata().getCustomMetadata().keySet());
             customMetadata.keySet().forEach(k -> {
