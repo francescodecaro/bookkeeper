@@ -28,6 +28,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
     private Map<String, byte[]> customMetadata;
     private long ledgerId;
     private int exceptionCode;
+    private int exceptionCodeAdv;
     private boolean opportunisticStriping;
     private boolean systemTime;
 
@@ -36,51 +37,58 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
         Map<String, byte[]> customMetadata = new HashMap<>();
         customMetadata.put("key", "value".getBytes());
         return Arrays.asList(new Object[][]{
-                {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, false, true },
-                {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, true, false },
+                {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, BKException.Code.IncorrectParameterException, false, true },
+                {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, BKException.Code.IncorrectParameterException, true, false },
 
-                {1, 1, 1, DigestType.CRC32, "password", Collections.emptyMap(),  0, BKException.Code.OK, false, true },
-                {1, 1, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, true, false },
+                {1, 1, 1, DigestType.CRC32, "password", Collections.emptyMap(),  0, BKException.Code.OK, BKException.Code.OK, false, true },
+                {1, 1, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
-                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, false, false },
-                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, true, true },
-
-
-                { 3, 2, 1, DigestType.CRC32C, "password", Collections.emptyMap(), 0, BKException.Code.OK, true, false },
-                { 3, 2, 1, DigestType.MAC, "password", Collections.emptyMap(), 0, BKException.Code.OK, false, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, true },
-
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.IncorrectParameterException, true, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.IncorrectParameterException, false, true },
+                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, false, false },
+                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, true },
 
 
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.IncorrectParameterException, true, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.IncorrectParameterException, false, true },
+                { 3, 2, 1, DigestType.CRC32C, "password", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, false },
+                { 3, 2, 1, DigestType.MAC, "password", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, false, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, true },
+
+
+
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.OK, BKException.Code.IncorrectParameterException, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.OK, BKException.Code.IncorrectParameterException, false, true },
+
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.OK, BKException.Code.IncorrectParameterException, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.OK, BKException.Code.IncorrectParameterException, false, true },
+
 
                 // Long.MIN_VALUE to pass null
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, true, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, false, true },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, BKException.Code.OK, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, BKException.Code.OK, false, true },
 
-                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, false, true },
-                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
+                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, false, true },
+                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
 
-                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
+                { 4, 1, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 1, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
-                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, true, false },
+                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
-                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, true, false },
+                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
+                { 5, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
+                { 5, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
+
+                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
+                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, true, false },
 
         });
     }
 
     public LedgerCreateOpTest(int ensSize, int writeQuorumSize, int ackQuorumSize, DigestType digestType,
                               String password, Map<String, byte[]> customMetadata,
-                              long ledgerId, int exceptionCode, boolean opportunisticStriping, boolean systemTime) {
+                              long ledgerId, int exceptionCode, int exceptionCodeAdv, boolean opportunisticStriping, boolean systemTime) {
         super(3);
         this.ensSize = ensSize;
         this.writeQuorumSize = writeQuorumSize;
@@ -90,6 +98,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
         this.customMetadata = customMetadata;
         this.ledgerId = ledgerId;
         this.exceptionCode = exceptionCode;
+        this.exceptionCodeAdv = exceptionCodeAdv;
         this.opportunisticStriping = opportunisticStriping;
         this.systemTime = systemTime;
     }
@@ -162,7 +171,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
                     .execute()          // execute the creation op
                     .get();
 
-            if (exceptionCode != BKException.Code.OK) {
+            if (exceptionCodeAdv != BKException.Code.OK) {
                 fail();
             }
 
@@ -179,11 +188,11 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
         } catch (InterruptedException e) {
             fail("Test Timeout");
         } catch (ExecutionException e) {
-            if (exceptionCode == BKException.Code.OK || !(e.getCause() instanceof BKException)){
+            if (exceptionCodeAdv == BKException.Code.OK || !(e.getCause() instanceof BKException)){
                 fail();
             }
             BKException cause = (BKException) e.getCause();
-            assertEquals(exceptionCode, cause.getCode());
+            assertEquals(exceptionCodeAdv, cause.getCode());
         }
     }
 }

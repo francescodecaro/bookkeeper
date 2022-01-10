@@ -217,8 +217,9 @@
             <param>org.apache.bookkeeper.client.LedgerCreateOp</param>
           </targetClasses>
           <targetTests>
-            <param>it.uniroma2.dicii.isw2.*</param>
+            <param>it.uniroma2.dicii.isw2.LedgerCreateOpTest</param>
           </targetTests>
+          <timeoutFactor>1000</timeoutFactor>
         </configuration>
       </plugin>
       <plugin>
