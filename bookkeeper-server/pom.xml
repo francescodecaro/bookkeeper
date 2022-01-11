@@ -32,6 +32,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <version>1.7.2</version>
+      <type>maven-plugin</type>
+    </dependency>
+    <dependency>
       <groupId>org.apache.bookkeeper</groupId>
       <artifactId>bookkeeper-common</artifactId>
       <version>${project.parent.version}</version>
@@ -201,6 +207,21 @@
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.7.2</version>
+        <configuration>
+          <verbose>true</verbose>
+          <targetClasses>
+            <param>org.apache.bookkeeper.client.LedgerCreateOp</param>
+          </targetClasses>
+          <targetTests>
+            <param>it.uniroma2.dicii.isw2.LedgerCreateOpTest</param>
+          </targetTests>
+          <timeoutFactor>1000</timeoutFactor>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
