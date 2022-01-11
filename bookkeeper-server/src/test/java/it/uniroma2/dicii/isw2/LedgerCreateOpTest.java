@@ -40,48 +40,24 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
                 {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, BKException.Code.IncorrectParameterException, false, true },
                 {0, 1, 2, null, null, Collections.emptyMap(), 0, BKException.Code.IncorrectParameterException, BKException.Code.IncorrectParameterException, true, false },
 
+                {1, 1, 1, DigestType.CRC32, "password", Collections.emptyMap(),  0, BKException.Code.OK, BKException.Code.OK, false, false },
                 {1, 1, 1, DigestType.CRC32, "password", Collections.emptyMap(),  0, BKException.Code.OK, BKException.Code.OK, false, true },
                 {1, 1, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, false },
-
-                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, false, false },
-                {2, 2, 1, DigestType.CRC32, "", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, true },
-
 
                 { 3, 2, 1, DigestType.CRC32C, "password", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, true, false },
                 { 3, 2, 1, DigestType.MAC, "password", Collections.emptyMap(), 0, BKException.Code.OK, BKException.Code.OK, false, false },
                 { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, true },
 
-
-
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.OK, BKException.Code.IncorrectParameterException, true, false },
                 { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.OK, BKException.Code.IncorrectParameterException, false, true },
-
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.OK, BKException.Code.IncorrectParameterException, true, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -2L, BKException.Code.OK, BKException.Code.IncorrectParameterException, false, true },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, -1L, BKException.Code.OK, BKException.Code.IncorrectParameterException, true, false },
 
 
-                // Long.MIN_VALUE to pass null
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, BKException.Code.OK, true, false },
-                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, BKException.Code.OK, false, true },
-
-                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, false, true },
-                { 3, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
-
-
-                { 4, 1, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 1, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
-
+                { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, false },
                 { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
                 { 4, 2, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
-                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
 
-                { 5, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
-                { 5, 3, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.OK, BKException.Code.OK, true, false },
-
-                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, false, true },
-                { 4, 4, 1, DigestType.DUMMY, "password", customMetadata, 0, BKException.Code.NotEnoughBookiesException, BKException.Code.NotEnoughBookiesException, true, false },
+                { 3, 2, 1, DigestType.DUMMY, "password", customMetadata, Long.MIN_VALUE, BKException.Code.OK, BKException.Code.OK, true, false },
 
         });
     }
@@ -113,6 +89,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
 
     @Test
     public void createTest() {
+        long time = System.currentTimeMillis();
         try {
             WriteHandle wh = bkc.newCreateLedgerOp()
                     .withEnsembleSize(ensSize)
@@ -127,6 +104,10 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
 
             if (exceptionCode != BKException.Code.OK) {
                 fail();
+            }
+
+            if (systemTime) {
+                assertTrue(wh.getLedgerMetadata().getCtime() >= time);
             }
 
             assertEquals(customMetadata.keySet(), wh.getLedgerMetadata().getCustomMetadata().keySet());
@@ -152,6 +133,7 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
 
     @Test
     public void createAdvTest() {
+        long time = System.currentTimeMillis();
         try {
             CreateAdvBuilder createAdvBuilder = bkc.newCreateLedgerOp()
                     .withEnsembleSize(ensSize)
@@ -175,6 +157,10 @@ public class LedgerCreateOpTest extends BookKeeperClusterTestCase {
                 fail();
             }
 
+            if (systemTime) {
+                assertTrue(wh.getLedgerMetadata().getCtime() >= time);
+            }
+            
             assertEquals(customMetadata.keySet(), wh.getLedgerMetadata().getCustomMetadata().keySet());
             customMetadata.keySet().forEach(k -> {
                 assertArrayEquals(customMetadata.get(k), wh.getLedgerMetadata().getCustomMetadata().get(k));
