@@ -8,6 +8,7 @@ import org.apache.bookkeeper.client.api.DigestType;
 import org.apache.bookkeeper.client.api.ReadHandle;
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Enumeration;
@@ -15,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class LedgerOpenOpTest extends BookKeeperClusterTestCase {
 
     LedgerHandle lh;
@@ -55,19 +57,6 @@ public class LedgerOpenOpTest extends BookKeeperClusterTestCase {
             fail();
         }
     }
-
-
-//    @Test
-//    public void testOpenAfterClosed() {
-//        try {
-//            lh.close();
-//            bkc.openLedger(ledgerId, BookKeeper.DigestType.CRC32, "".getBytes());
-//        } catch (InterruptedException e) {
-//            fail();
-//        } catch (BKException e) {
-//            assertEquals(BKException.Code.LedgerClosedException, e.getCode());
-//        }
-//    }
 
 
     @Test
