@@ -214,12 +214,12 @@
         <configuration>
           <verbose>true</verbose>
           <targetClasses>
-<!--            <param>org.apache.bookkeeper.client.LedgerCreateOp</param>-->
-            <param>org.apache.bookkeeper.client.LedgerOpenOp</param>
+            <param>org.apache.bookkeeper.client.LedgerCreateOp</param>
+            <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache</param>
           </targetClasses>
           <targetTests>
-<!--            <param>it.uniroma2.dicii.isw2.LedgerCreateOpTest</param>-->
-            <param>it.uniroma2.dicii.isw2.LedgerOpenOpTest</param>
+            <param>it.uniroma2.dicii.isw2.LedgerCreateOpTest</param>
+            <param>it.uniroma2.dicii.isw2.WriteCacheTest</param>
           </targetTests>
           <timeoutFactor>1000</timeoutFactor>
         </configuration>
