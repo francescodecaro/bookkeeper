@@ -67,7 +67,7 @@ public class WriteCacheTest {
 
                 // success test
                 { entry, 0, 0, 1, null, 0, 0, null, -1, null },
-//
+
 //                // Added after coverage
                 { entry, 0, 0, 1, null, 0, 0, null, 0, "Max segment size needs to be in form of 2^n" },
                 { entry, 0, 0, 1, null, 0, 0, IllegalArgumentException.class, -1 * 1024 * 1024 * 1024, null },
@@ -97,19 +97,6 @@ public class WriteCacheTest {
 
         if (expectedException != null) this.expectedException.expect(expectedException);
         if (notExpectedExceptionMessage != null) {
-//            this.expectedException.expectMessage(new TypeSafeMatcher<String>() {
-//                @Override
-//                public void describeTo(Description description) {
-//
-//                }
-//
-//                @Override
-//                protected boolean matchesSafely(String s) {
-//                    if (s == null) return true;
-//                    return !s.equals(notExpectedExceptionMessage);
-//                }
-//            });
-
             this.expectedException.expectMessage(new BaseMatcher<String>() {
                 @Override
                 public void describeTo(Description description) {
