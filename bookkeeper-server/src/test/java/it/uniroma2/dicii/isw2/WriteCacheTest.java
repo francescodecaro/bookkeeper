@@ -80,12 +80,6 @@ public class WriteCacheTest {
                 { entry, 0, 0, 10, null, 0, 0, null, -1, null },
 
 
-
-
-//                { entry, 0, 0, 1, null, 1, ENTRY_SIZE },
-//                { entry, 0, 0, 0, failEntry, 0, 0 },
-//                { entry, 0, 0, 5, null, 5, ENTRY_SIZE * 5 },
-
         });
     }
 
@@ -208,75 +202,4 @@ public class WriteCacheTest {
 
         assertEquals(nEntries > 0 ? entry : null, writeCache.getLastEntry(ledgerId));
     }
-
-//    @Test
-//    public void testSmaller() {
-////        ByteBuf entry = allocator.buffer(512);
-////        entry.writerIndex(entry.capacity());
-//
-//        assertTrue(writeCache.put(ledgerId, 0, entry));
-//        assertTrue(writeCache.put(ledgerId, 1, entry));
-//        assertTrue(writeCache.put(ledgerId, 2, entry));
-//
-//        ByteBuf entry2 = allocator.buffer(ENTRY_SIZE * 3);
-//        entry2.writerIndex(entry2.capacity());
-//
-//        assertFalse(writeCache.put(ledgerId, 3, entry2));
-//        assertFalse(writeCache.put(ledgerId, 4, entry));
-//
-//    }
-
-
-//    @Test
-//    public void testPut() {
-//        ByteBuf entry = allocator.buffer(entrySize);
-//        entry.writerIndex(entry.capacity());
-//
-//        writeCache.put(0L, 0L, entry);
-//        assertEquals(1, writeCache.count());
-//        assertEquals(1 *  entrySize, writeCache.size());
-//    }
-//
-//
-//    @Test
-//    public void testPutMultipleEntries() {
-//
-//        ByteBuf entry = allocator.buffer(entrySize);
-//        entry.writerIndex(entry.capacity());
-//
-//        int entries = maxEntries / 2;
-//        for (int i = 0; i < entries; i++) {
-//            assertTrue(writeCache.put(0L, i, entry));
-//        }
-//
-//        assertEquals(entries, writeCache.count());
-//        assertEquals(entries *  entrySize, writeCache.size());
-//    }
-
-//    @Test
-//    public void testPutCacheFull() {
-//
-//        ByteBuf entry = allocator.buffer(entrySize);
-//        entry.writerIndex(entry.capacity());
-//
-//        int entries = maxEntries;
-//        for (int i = 0; i < entries; i++) {
-//            assertTrue(writeCache.put(0L, i, entry));
-//        }
-//
-//        assertFalse(writeCache.put(0L, entries + 1, entry));
-//        assertEquals(maxEntries, writeCache.count());
-//        assertEquals(entries *  entrySize, writeCache.size());
-//    }
-
-//    @Test
-//    public void testPutEntryBiggerThanMaxCacheSize() {
-//
-//        ByteBuf entry = allocator.buffer(entrySize * (maxEntries + 1));
-//        entry.writerIndex(entry.capacity());
-//
-//        assertFalse(writeCache.put(0L, 0L, entry));
-//        assertEquals(0, writeCache.count());
-//        assertEquals(0, writeCache.size());
-//    }
 }
